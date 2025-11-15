@@ -1,0 +1,16 @@
+# test_identity.py
+
+from dmm_scpi import get_idn
+
+def main() -> None:
+    try:
+        idn = get_idn()
+        print("DMM7510 identity string:")
+        print(idn)
+    except Exception as e:
+        print("Failed to communicate with DMM7510.")
+        print("Error:", repr(e))
+
+
+if __name__ == "__main__":
+    main()

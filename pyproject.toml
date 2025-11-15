@@ -1,0 +1,11 @@
+[project]
+name = "dmm7510-high-temp-resistance"
+version = "0.1.0"
+description = "Python control and automation scripts for Keithley DMM7510 high-temperature resistance measurements."
+requires-python = ">=3.11"
+
+dependencies = [
+    "python-dotenv",
+    "pyvisa",
+    "matplotlib",
+]
