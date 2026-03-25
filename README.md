@@ -1,5 +1,5 @@
 # dmm7510-python-interface
-Work study- Instrument development to measure resistance for materials through Keithley dmmm7510
+Work study- Instrument development to measure 4-wire resistance for materials through Keithley DMM7510
 
 ## Setup
 1) Install deps (Python 3.11+): `pip install -e .[dev]`  
@@ -11,6 +11,7 @@ Work study- Instrument development to measure resistance for materials through K
 - Continuous: `resistance-loop --count 20 --delay-s 0.1 --interval-s 1 --out-csv runs/run.csv`
 - Dry run: add `--dry-run`. Override device: `--visa-resource <name>`.
 - Conductivity: add geometry `--length-m <m> --area-m2 <m^2>` to print σ and include in CSV.
+- Measurement mode: the repo is configured for 4-wire resistance (`FRES`) by default.
 
 ## Architecture
 - Package: `dmm7510/` (config, instrument I/O, reading primitives, measurement domain).

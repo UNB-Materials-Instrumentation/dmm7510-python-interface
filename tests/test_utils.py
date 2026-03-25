@@ -1,4 +1,4 @@
-from dmm7510.reading import read_resistance_average, configure_2wire_resistance
+from dmm7510.reading import read_resistance_average, configure_4wire_resistance
 
 
 class FakeInstrument:
@@ -28,6 +28,6 @@ def test_read_resistance_average_median():
 
 def test_configure_sends_expected_commands():
     inst = FakeInstrument([])
-    configure_2wire_resistance(inst, nplc=5.0)
-    assert ":SENS:FUNC \"RES\"" in inst.commands
-    assert any(cmd.startswith(":SENS:RES:NPLC") for cmd in inst.commands)
+    configure_4wire_resistance(inst, nplc=5.0)
+    assert ":SENS:FUNC \"FRES\"" in inst.commands
+    assert any(cmd.startswith(":SENS:FRES:NPLC") for cmd in inst.commands)

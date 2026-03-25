@@ -11,7 +11,7 @@ import typer
 
 from dmm7510.config import load_config
 from dmm7510.instrument import dmm_connection, get_idn
-from dmm7510.reading import configure_2wire_resistance, read_resistance_average
+from dmm7510.reading import configure_4wire_resistance, read_resistance_average
 from dmm7510.measurement import Geometry, conductivity_s_per_m
 
 app = typer.Typer(add_completion=False)
@@ -64,7 +64,7 @@ def main(
         idn_reply = get_idn(cfg)
         typer.echo(f"Connected to instrument: {idn_reply}")
 
-        configure_2wire_resistance(inst, nplc=nplc)
+        configure_4wire_resistance(inst, nplc=nplc)
 
         resistance_ohm = read_resistance_average(
             inst,

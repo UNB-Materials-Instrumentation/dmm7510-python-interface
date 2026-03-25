@@ -13,7 +13,7 @@ import typer
 
 from dmm7510.config import load_config
 from dmm7510.instrument import dmm_connection, query
-from dmm7510.reading import configure_2wire_resistance, read_resistance_average
+from dmm7510.reading import configure_4wire_resistance, read_resistance_average
 from dmm7510.measurement import Geometry, conductivity_s_per_m
 
 app = typer.Typer(add_completion=False)
@@ -76,7 +76,7 @@ def main(
         identity = query(inst, "*IDN?")
         typer.echo(f"Connected to: {identity}")
 
-        configure_2wire_resistance(inst, nplc=nplc)
+        configure_4wire_resistance(inst, nplc=nplc)
 
         typer.echo("Starting resistance measurements. Press Ctrl+C to stop.\n")
 
