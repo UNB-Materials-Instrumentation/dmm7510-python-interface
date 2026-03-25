@@ -1,6 +1,6 @@
 # test_identity.py
 
-from dmm_scpi import get_idn
+from dmm7510.instrument import get_idn
 
 
 def main() -> None:

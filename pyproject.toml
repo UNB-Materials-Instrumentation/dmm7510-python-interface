@@ -8,4 +8,19 @@ dependencies = [
     "python-dotenv",
     "pyvisa",
     "matplotlib",
+    "typer>=0.12",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pyvisa-sim",
+]
+
+[project.scripts]
+measure-once = "cli.measure_once:app"
+resistance-loop = "cli.resistance_loop:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["dmm7510*","cli*"]
